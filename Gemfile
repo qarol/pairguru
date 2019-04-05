@@ -9,6 +9,7 @@ gem "draper"
 gem "haml-rails"
 gem "jquery-rails"
 gem "sass-rails"
+gem "simple_form"
 gem "sqlite3"
 gem "uglifier"
 

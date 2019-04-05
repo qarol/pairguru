@@ -3,3 +3,20 @@
   = @movie.description
 - if user_signed_in?
   %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
+
+%h2 Comments
+- if user_signed_in?
+  = simple_form_for @movie.comments.build, url: comments_path(@movie), html: { class: "form-horizontal" } do |f|
+    = f.error :user
+    = f.input :content, as: :text, error: false
+    = f.button :submit
+
+- @movie.comments.order(created_at: :desc).each do |comment|
+  %h4
+    = comment.user_email
+    %small
+      = comment.created_at
+      - if comment.user == current_user
+        = link_to "[remove]", comment_path(comment), method: :delete, data: { confirm: "Are You sure?" }
+  .content= simple_format comment.content
+  %hr

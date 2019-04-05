@@ -31,3 +31,14 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    attributes:
+      comment:
+        content: Comment
+    errors:
+      models:
+        comment:
+          attributes:
+            user:
+              already_commented: 'have already commented this movie'

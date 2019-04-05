@@ -13,5 +13,8 @@
 #
 
 class Movie < ApplicationRecord
+  has_many :comments, dependent: :destroy
   belongs_to :genre
+
+  delegate :name, to: :genre, allow_nil: true, prefix: true
 end
