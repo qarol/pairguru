@@ -26,4 +26,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   validates :phone_number, format: { with: /\A[+]?\d+(?>[- .]\d+)*\z/, allow_nil: true }
+
+  scope :top_commenters, -> {
+    joins(:comments)
+      .merge(Comment.last_7_days)
+      .group(:id, :name, :email)
+      .order("count_all DESC")
+      .limit(10)
+      .count
+  }
 end

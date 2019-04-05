@@ -1,0 +1,22 @@
+.row
+  .col-md-8.col-md-offset-2.col-lg-8.col-lg-offset-2
+    %h1.text-center
+      Top Commenters
+      %small last 7 days
+    - if @users.present?
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th Name (e-mail)
+            %th Number of comments
+        %tbody
+          - @users.each.with_index(1) do |((user_id, user_name, user_email), comments_count), i|
+            %tr{class: "row-#{i}"}
+              %td{class: "col-nr"}= i
+              %td{class: "col-name"}
+                = user_name
+                = " (#{user_email})" if user_email.present?
+              %td{class: "col-count"}= comments_count
+    - else
+      %p.text-center No one has created comment last 7 days.
