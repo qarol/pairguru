@@ -93,6 +93,14 @@ describe "Movies requests", type: :request do
         visit "/movies/#{movie.id}"
         expect(page).to_not have_button("Create Comment")
       end
+
+      context "but there exist comment created by user" do
+        let!(:comment) { create(:comment, movie: movie, user: user) }
+        it "can't create new comment if there exists already comment created by user" do
+          visit "/movies/#{movie.id}"
+          expect(page).to_not have_link("[remove]")
+        end
+      end
     end
   end
 end
