@@ -9,6 +9,7 @@ require "simplecov"
 require "shoulda/matchers"
 SimpleCov.start "rails"
 # Add additional requires below this line. Rails is not loaded until this point!
+require "rspec/json_expectations"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

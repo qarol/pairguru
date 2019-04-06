@@ -6,6 +6,7 @@ gem "annotate"
 gem "bootstrap-sass"
 gem "devise"
 gem "draper"
+gem 'fast_jsonapi'
 gem "haml-rails"
 gem "jquery-rails"
 gem "sass-rails"
@@ -38,4 +39,5 @@ end
 
 group :test do
   gem "shoulda-matchers"
+  gem 'rspec-json_expectations'
 end

@@ -107,6 +107,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.8.7)
       i18n (>= 0.7)
+    fast_jsonapi (1.5)
+      activesupport (>= 4.2)
     ffi (1.9.23)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -213,6 +215,7 @@ GEM
     rspec-expectations (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
+    rspec-json_expectations (2.1.0)
     rspec-mocks (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
@@ -301,6 +304,7 @@ DEPENDENCIES
   draper
   factory_bot_rails
   faker
+  fast_jsonapi
   haml-rails
   jquery-rails
   letter_opener
@@ -308,6 +312,7 @@ DEPENDENCIES
   pry-rails
   rails (= 5.2)
   rails-erd
+  rspec-json_expectations
   rspec-rails
   rubocop
   sass-rails
@@ -319,4 +324,4 @@ DEPENDENCIES
   uglifier
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
