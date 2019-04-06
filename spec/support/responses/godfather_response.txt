@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Server: Cowboy
+Date: Sat, 06 Apr 2019 16:15:18 GMT
+Connection: keep-alive
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+Etag: W/"0b3e1497ae4666c381fb57fe61558b60"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 27662367-6e5c-4f17-a109-fb789dc7866f
+X-Runtime: 0.006375
+Transfer-Encoding: chunked
+Via: 1.1 vegur
+
+{"data":{"id":"6","type":"movie","attributes":{"title":"Godfather","plot":"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.","rating":9.2,"poster":"/godfather.jpg"}}}

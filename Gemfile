@@ -6,6 +6,7 @@ gem "annotate"
 gem "bootstrap-sass"
 gem "devise"
 gem "draper"
+gem "httparty"
 gem "haml-rails"
 gem "jquery-rails"
 gem "sass-rails"
@@ -34,8 +35,10 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop"
   gem "simplecov"
+  gem "webmock"
 end
 
 group :test do
   gem "shoulda-matchers"
+  gem "rspec-json_expectations"
 end
