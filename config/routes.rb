@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   end
 
   namespace :api, defaults: { format: :json } do
-    resources :movies, only: :index
+    resources :movies, only: [:index, :show]
   end
 end

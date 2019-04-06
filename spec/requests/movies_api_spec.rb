@@ -69,4 +69,62 @@ describe "Movies requests", type: :request do
       end
     end
   end
+
+  describe "movie API show" do
+    context "when there are some movies in DB" do
+      let!(:genre) { create(:genre) }
+      let!(:movie) { create(:movie, genre: genre) }
+
+      it "displays movie data" do
+        visit "/api/movies/#{movie.id}"
+        expect(page.body).to include_json(data: {
+                                            id: movie.id.to_s,
+                                            type: "movie",
+                                            attributes: {
+                                              id: movie.id,
+                                              title: movie.title
+                                            },
+                                            relationships: {
+                                              genre: {
+                                                data: {
+                                                  id: movie.genre_id.to_s,
+                                                  type: "genre"
+                                                }
+                                              }
+                                            }
+                                          })
+      end
+
+      it "displays movie data with genre" do
+        visit "/api/movies/#{movie.id}?include=genre"
+        expect(page.body).to include_json(data: {
+                                            id: movie.id.to_s,
+                                            type: "movie",
+                                            attributes: {
+                                              id: movie.id,
+                                              title: movie.title
+                                            },
+                                            relationships: {
+                                              genre: {
+                                                data: {
+                                                  id: movie.genre_id.to_s,
+                                                  type: "genre"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          included: [
+                                            {
+                                              id: genre.id.to_s,
+                                              type: "genre",
+                                              attributes: {
+                                                id: genre.id,
+                                                name: genre.name,
+                                                movies_count: 1
+                                              }
+                                            }
+                                          ])
+      end
+    end
+  end
 end
